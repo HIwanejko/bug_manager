@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Tickets{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Tickets</h1>
+    </div>
+    <form action="/tickets/create" method="get">
+        <button type="submit" class="btn btn-primary">Create Ticket</button>
+    </form>
+    <table class="table table-hover row-clickable">
+        <tr>
+            <th>Bug</th>
+            <th>Description</th>
+            <th>Created</th>
+            <th>Assigned</th>
+            <th>Status</th>
+        </tr>
+        {% for ticket in object_list %}
+            <tr>
+                <td><a href="{{ ticket.get_absolute_url }}">{{ticket.name}}</a></td>
+                <td>{{ticket.description}}</td>
+                <td>{{ticket.opened_datetime}}</td>
+                <td>{{ticket.assigned_to}}</td>
+                <td>{{ticket.status}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

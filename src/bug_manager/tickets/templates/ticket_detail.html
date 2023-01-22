@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{object.name}}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="container">
+        <div class="jumbotron">
+            <h1>{{ object.name }}</h1>
+        </div>
+        <h3>Ticket Details:</h3>
+        <p>Created on: {{ object.opened_datetime }}</p>
+        <p>Created By: <b>{{ object.created_by }}</b></p>
+        <p>Last Updated: {{ object.updated_datetime }}</p>
+        <p>Status: {{ object.status }}</p>
+        <p>Assigned to: <b>{{ object.assigned_to }}</b></p>
+        <h3>Description:</h3>
+        <div class="multiline">{{ object.description }}</div>
+        <br/>
+        <a class="btn btn-primary" href="/tickets" role="button">Back</a>
+        <a style="float:right;" class="btn btn-primary" href="/tickets/{{object.id}}/delete" role="button">Delete Ticket</a>
+        <a style="float:right;" class="btn btn-primary" href="/tickets/{{object.id}}/update" role="button">Update Ticket</a>
+    </div>
+</div>
+{% endblock %}

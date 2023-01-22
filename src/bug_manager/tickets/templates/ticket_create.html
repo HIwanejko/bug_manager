@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Create Ticket{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Create Ticket</h1>
+        </div>
+        <form action='.' method='POST'>{% csrf_token %}
+            <div class="fieldWrapper">
+                <label for="{{ form.name.id_for_label }}">Ticket name:</label>
+                {{ form.name }}
+            </div>
+            <div class="fieldWrapper">
+                <label for="{{ form.description.id_for_label }}">Description:</label>
+                {{ form.description }}
+            </div>
+            <div class="fieldWrapper">
+                <label for="{{ form.points.id_for_label }}">Status:</label>
+                {{ form.status }}
+            </div>
+            <div class="fieldWrapper">
+                <label for="{{ form.points.id_for_label }}">Assigned To:</label>
+                {{ form.assigned_to }}
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+        <br/>
+        {% include 'error.html' %}
+    </div>
+{% endblock %}

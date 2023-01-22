@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Login</h1>
+    </div>
+    <center>
+        <form action='.' method='POST'>{% csrf_token %}
+            <div class="fieldWrapper">
+                <label for="{{ form.username.id_for_label }}">Username:</label>
+                {{ form.username }}
+            </div>
+            <div class="fieldWrapper">
+                <label for="{{ form.password.id_for_label }}">Password:</label>
+                {{ form.password }}
+            </div>
+            <a href='/auth/register' class="btn btn-primary">Register</a>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <br/>
+        {% include 'error.html' %}
+    </center>
+</div>
+{% endblock %}
