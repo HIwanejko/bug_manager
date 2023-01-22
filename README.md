@@ -1,4 +1,4 @@
-# Bug Manger
+# Bug Manager
 
 ## Install
 ``` make install ```
